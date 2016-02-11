@@ -10,4 +10,6 @@ version: 0.1.0
 templates:
     config:
         output_file: .i3/config
+    i3pystatus:
+        output_file: .i3/colors.py
 
