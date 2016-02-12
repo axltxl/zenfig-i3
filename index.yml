@@ -1,12 +1,11 @@
 ---
-################################
-# Prototype index file
-# meant to be used by zenfig 0.3
-################################
+#########################
+# i3wm zenfiguration file
+#########################
 author: Alejandro Ricoveri
 name: i3
-description: blablabla
-version: 0.1.0
+description: i3wm configuration
+version: 0.0.1
 templates:
     config:
         output_file: .i3/config
