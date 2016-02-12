@@ -9,7 +9,7 @@ i3_key_alt: Shift
 
 # Font configuration
 i3_font: '{{ @font }}'
-i3_font_size: '{{ @font_size }}'
+i3_font_size: '{{ @font_size|int - 2 }}'
 
 # Terminal of choice
 i3_term: '{{ @term }}'
