@@ -3,6 +3,11 @@
 # i3wm settings
 ############################
 
+# Essentials
+i3_install_prefix: '{{ "%s/.i3"|format(@zenfig_install_prefix) }}'
+i3_file_conf: '{{ "%s/config"|format(@i3_install_prefix) }}'
+i3_file_status: '{{ "%s/colors.py"|format(@i3_install_prefix) }}'
+
 # Basic key bindings
 i3_key_mod: Mod1
 i3_key_alt: Shift
