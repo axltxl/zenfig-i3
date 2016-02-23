@@ -5,10 +5,10 @@
 author: Alejandro Ricoveri
 name: i3
 description: i3wm configuration
-version: 0.0.1
+version: 0.0.2
 templates:
     config:
-        output_file: .i3/config
+        output_file: '{{ @i3_file_conf }}'
     i3pystatus:
-        output_file: .i3/colors.py
+        output_file: '{{ @i3_file_status }}'
 
