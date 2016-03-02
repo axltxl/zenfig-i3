@@ -126,8 +126,8 @@ bindsym XF86AudioNext  $playerctl_next
 bindsym XF86AudioPrev  $playerctl_prev
 
 # Screen brightness controls
-bindsym XF86MonBrightnessUp   exec xbacklight -inc 2; exec panoti brightness
-bindsym XF86MonBrightnessDown exec xbacklight -dec 2; exec panoti brightness
+bindsym XF86MonBrightnessUp   $backlight_up
+bindsym XF86MonBrightnessDown $backlight_down
 
 # Jump to urgent window
 bindsym $mod+u [urgent=latest] focus
