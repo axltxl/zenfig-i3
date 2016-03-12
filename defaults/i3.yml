@@ -19,3 +19,7 @@ i3_font_size: '{{ @font_size|int - 2 }}'
 # Terminal of choice
 i3_term: '{{ @term }}'
 i3_term_class: someclass #temporary
+
+# Startup programs
+i3_startup_exec: []
+i3_startup_exec_always: []
