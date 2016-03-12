@@ -9,6 +9,3 @@ version: 0.0.2
 templates:
     config:
         output_file: '{{ @i3_file_conf }}'
-    i3pystatus:
-        output_file: '{{ @i3_file_status }}'
-
