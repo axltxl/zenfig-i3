@@ -3,35 +3,12 @@
 ######################
 # vim: ft=jinja cms=#%s
 
-# xrandr setup helper
-exec --no-startup-id dot-xrandr-setup
+# Normal execs done by i3
+% for prog in i3_startup_exec
+exec --no-startup-id {{ prog }}
+% endfor
 
-# compositing manager
-exec --no-startup-id compton
-
-# wicd-gtk on the tray
-exec wicd-gtk --tray
-
-# xautolock
-exec --no-startup-id xautolock -time 8 -locker $autolock
-
-# set wallpapers
-exec_always --no-startup-id nitrogen --restore
-
-# pulseaudio
-exec pulseaudio --start
-
-# stow watch monitoring daemon
-exec dot-stow-manager
-
-# dunst takes charge as the notification daemon
-exec --no-startup-id dunst -config ~/.config/dunst/dunstrc
-
-# keynav
-exec --no-startup-id keynav
-
-# volnoti
-exec --no-startup-id volnoti -t $volnoti_timeout -a $volnoti_opacity -r $volnoti_radius
-
-# Disable touchpad while typing
-exec --no-startup-id syndaemon -i 0.75
+# These will be always executed no matter what
+% for prog in i3_startup_exec_always
+exec_always --no-startup-id {{ prog }}
+% endfor
