@@ -23,8 +23,8 @@ i3_startup_exec: []
 i3_startup_exec_always: []
 
 # Window settings
-i3_new_window: pixel 0
-i3_new_float:  pixel 2
+i3_new_window: pixel 2
+i3_new_float:  '{{ @i3_new_window }}'
 
 # Window colors
 i3_color_focused:
@@ -50,13 +50,82 @@ i3_color_urgent:
 
 # Keyboard bindings configuration
 i3_bindkeys:
+    # resize mode
+    resize:
+        - ['j', 'resize shrink width 48px']
+        - ['l', 'resize grow height 48px']
+        - ['k', 'resize shrink height 48px']
+        - ['semicolon', 'resize grow width 48px']
+        - ['Return', 'mode "default"']
+
+    # default binding mode
     default:
-        # resize mode
+        # close current window
+        - ['$mod+c', 'kill']
+
+        # Resize mode
         - [ '$mod+r', 'mode resize']
 
+        # Move focused window
+        - ['$mod+$alt+j', 'move left']
+        - ['$mod+$alt+k', 'move down']
+        - ['$mod+$alt+l', 'move up']
+        - ['$mod+$alt+semicolon', 'move right']
+
+        # start dmenu (a program launcher)
+        - ['$mod+d', 'exec dmenu_run']
+
+        # Split in horizontal orientation
+        - ['$mod+b', 'split h']
+        - ['$mod+v', 'split v']
+
+        # Set current window to full screen
+        - ['$mod+f', 'fullscreen']
+
+        # Change container layout
+        - ['$mod+s', 'layout stacking']
+        - ['$mod+w', 'layout tabbed']
+        - ['$mod+e', 'layout toggle split']
+        - ['$mod+Shift+space', 'floating toggle']
+        - ['$mod+space', 'focus mode_toggle']
+
+        # execute terminal
+        - ['$mod+Return', 'exec i3-sensible-terminal' ]
+
+        # Switch workspaces
+        - ['$mod+1', 'workspace 1']
+        - ['$mod+2', 'workspace 2']
+        - ['$mod+3', 'workspace 3']
+        - ['$mod+4', 'workspace 4']
+        - ['$mod+5', 'workspace 5']
+        - ['$mod+6', 'workspace 6']
+        - ['$mod+7', 'workspace 7']
+        - ['$mod+8', 'workspace 8']
+        - ['$mod+9', 'workspace 9']
+        - ['$mod+0', 'workspace 0']
+
+        # Change focus
+        - [ '$mod+j', 'focus left']
+        - [ '$mod+k', 'focus down']
+        - [ '$mod+l', 'focus up']
+        - [ '$mod+semicolon', 'focus right']
+        - [ '$mod+a', 'focus parent']
+        - [ '$mod+q', 'focus child']
+
+        # Move container to a certain workspace
+        - ['$mod+$alt+1', 'move container to workspace 1']
+        - ['$mod+$alt+2', 'move container to workspace 2']
+        - ['$mod+$alt+3', 'move container to workspace 3']
+        - ['$mod+$alt+4', 'move container to workspace 4']
+        - ['$mod+$alt+5', 'move container to workspace 5']
+        - ['$mod+$alt+6', 'move container to workspace 6']
+        - ['$mod+$alt+7', 'move container to workspace 7']
+        - ['$mod+$alt+8', 'move container to workspace 8']
+        - ['$mod+$alt+9', 'move container to workspace 9']
+        - ['$mod+$alt+0', 'move container to workspace 0']
+
 # General input settings
-i3_focus_follow_mouse: true
-# Should mouse dictate focus?
+i3_focus_follow_mouse: true # Should mouse dictate focus?
 
 # i3 bar configuration
 i3_bar_tray_padding: 0
