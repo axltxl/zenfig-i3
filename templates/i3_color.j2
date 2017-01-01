@@ -1,0 +1,15 @@
+####################################
+# Useful macros for color formatting
+####################################
+# vim: ft=jinja cms=#%s
+
+# Format a bunch of hex colors into a rofi-compliant color string
+# used for its configuration.
+# Example: ['010101', 'd1d2fc', 'c1dfa1'] => '#010101 #d1d2fc ,#c1dfa1'
+% macro i3_color(color_set)
+%   set fmt_color = []
+%   for color in color_set
+%     do fmt_color.append(color|norm_hex)
+%-  endfor
+{{ fmt_color|join(" ") }}
+%- endmacro
