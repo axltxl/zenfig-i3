@@ -6,7 +6,9 @@
 # Essentials
 i3_install_prefix: '{{ "%s/.i3"|format(@zenfig_install_prefix) }}'
 i3_file_conf: '{{ "%s/config"|format(@i3_install_prefix) }}'
-i3_file_status: '{{ "%s/colors.py"|format(@i3_install_prefix) }}'
+
+# Whether or not you're using i3-gaps
+i3_gaps: false
 
 # Basic key bindings
 i3_key_mod: Mod1
@@ -14,12 +16,79 @@ i3_key_alt: Shift
 
 # Font configuration
 i3_font: '{{ @font }}'
-i3_font_size: '{{ @font_size|int - 2 }}'
-
-# Terminal of choice
-i3_term: '{{ @term }}'
-i3_term_class: someclass #temporary
+i3_font_size: '{{ @font_size }}'
 
 # Startup programs
 i3_startup_exec: []
 i3_startup_exec_always: []
+
+# Window settings
+i3_new_window: pixel 0
+i3_new_float:  pixel 2
+
+# Window colors
+i3_color_focused:
+    - '{{ @color_base03 }}'
+    - '{{ @color_base03 }}'
+    - '{{ @color_base00 }}'
+    - '{{ @color_base01 }}'
+i3_color_focused_inactive:
+    - '{{ @color_base02 }}'
+    - '{{ @color_base02 }}'
+    - '{{ @color_base03 }}'
+    - '{{ @color_base01 }}'
+i3_color_unfocused:
+    - '{{ @color_base01 }}'
+    - '{{ @color_base01 }}'
+    - '{{ @color_base03 }}'
+    - '{{ @color_base01 }}'
+i3_color_urgent:
+    - '{{ @color_base02 }}'
+    - '{{ @color_base08 }}'
+    - '{{ @color_base07 }}'
+    - '{{ @color_base08 }}'
+
+# Keyboard bindings configuration
+i3_bindkeys:
+    default:
+        # resize mode
+        - [ '$mod+r', 'mode resize']
+
+# General input settings
+i3_focus_follow_mouse: true
+# Should mouse dictate focus?
+
+# i3 bar configuration
+i3_bar_tray_padding: 0
+i3_bar_tray_output: primary
+i3_bar_command: i3bar
+i3_bar_position: bottom
+i3_bar_status_command: i3status
+i3_bar_separator_symbol: '|'
+i3_bar_font: '{{ @i3_font }}'
+i3_bar_font_size: '{{ (@i3_font_size|int * 0.8)|int }}'
+
+# i3bar colors
+i3_bar_color_separator:  '{{ @color_base03 }}'
+i3_bar_color_background: '{{ @color_base00 }}'
+i3_bar_color_statusline: '{{ @color_base05 }}'
+i3_bar_color_focused_workspace:
+    - '{{ @i3_bar_color_background }}'
+    - '{{ @i3_bar_color_background }}'
+    - '{{ @color_base0C }}'
+i3_bar_color_active_workspace:
+    - '{{ @i3_bar_color_background }}'
+    - '{{ @i3_bar_color_background }}'
+    - '{{ @color_base0E }}'
+i3_bar_color_inactive_workspace:
+    - '{{ @i3_bar_color_background }}'
+    - '{{ @i3_bar_color_background }}'
+    - '{{ @color_base04 }}'
+i3_bar_color_urgent_workspace:
+    - '{{ @i3_bar_color_background }}'
+    - '{{ @i3_bar_color_background }}'
+    - '{{ @color_base08 }}'
+i3_bar_color_binding_mode:
+    - '{{ @color_base0B }}'
+    - '{{ @color_base0B }}'
+    - '{{ @color_base00 }}'

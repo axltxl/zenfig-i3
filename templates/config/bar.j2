@@ -3,25 +3,37 @@
 ######################
 # vim: ft=jinja cms=#%s
 
+# Load useful macros
+% from 'i3_color.j2' import i3_color
+
 bar {
+    # i3bar command line
+    i3bar_command {{ i3_bar_command }}
+
     # tray settings
-    tray_padding $tray_padding
+    tray_padding {{ i3_bar_tray_padding }}
+    tray_output {{ i3_bar_tray_output }}
+
+    # Separator symbol
+    separator_symbol "{{ i3_bar_separator_symbol }}"
+
+    # Font
+    font pango:{{ i3_bar_font }} {{ i3_bar_font_size }}
 
     # position
-    position $bar_position
+    position {{ i3_bar_position }}
 
-    # i3pystatus is awesome!!
-    status_command $i3pystatus_py $i3pystatus_conf
+    status_command {{ i3_bar_status_command }}
 
     # The actual colors
     colors {
-        separator          $base00
-        background         $base00
-        statusline         $base05
-        focused_workspace  $base00 $base00 $base0C
-        active_workspace   $base00 $base00 $base0E
-        inactive_workspace $base00 $base00 $base04
-        urgent_workspace   $base00 $base00 $base08
-        binding_mode       $base0B $base0B $base00
+        separator          {{ i3_bar_color_separator|norm_hex  }}
+        background         {{ i3_bar_color_background|norm_hex }}
+        statusline         {{ i3_bar_color_statusline|norm_hex }}
+        focused_workspace  {{ i3_color(i3_bar_color_focused_workspace) }}
+        active_workspace   {{ i3_color(i3_bar_color_active_workspace) }}
+        inactive_workspace {{ i3_color(i3_bar_color_inactive_workspace) }}
+        urgent_workspace   {{ i3_color(i3_bar_color_urgent_workspace) }}
+        binding_mode       {{ i3_color(i3_bar_color_binding_mode) }}
     }
 }
